@@ -1,3 +1,5 @@
+package ua.cherkasskiy.hw3;
+
 import java.util.Scanner;
 
 public class Task3 {

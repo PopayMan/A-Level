@@ -1,3 +1,5 @@
+package ua.cherkasskiy.hw2;
+
 public class Task2 {
     public static void main(String[] args) {
         Point A = new Point(13, 34);

@@ -1,3 +1,5 @@
+package ua.cherkasskiy.hw3;
+
 public class PracticePower {
     public static void main(String[] args) {
         PracticePower Solution = null;
