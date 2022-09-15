@@ -1,30 +1,48 @@
 package ua.cherkasskiy.hw4;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Task2n3 {
 
     public static void main(String[] args) {
-        int[] number = new int[1000];
-        for (int i = 0; i < number.length; i++) {
-            number[i] = (int) (Math.random() * 20 + 1);
-        }
-        System.out.println("Arrays: " + Arrays.toString(number));
-        for (int i = 0; i < number.length; i++) {
-            if (PrimeNumber(number[i]))
-                System.out.println("Number: " + number[i] + " is simple !");
-        }
+        int[] input = new int[1000];
+        fillArray(input);
+        System.out.println(Arrays.toString(input));
+        System.out.println("Sum prime numbers: " + primeCount(input));
+        System.out.println("Sum composite numbers: " + compositeCount(input));
     }
-    private static boolean PrimeNumber(int n) {
-        int temp;
-        if (n == 1)
-            return false;
-        for (int i = 2; i <= n / 2; i++) {
-            temp = n % i;
-            if (temp == 0)
+    public static Random fillArray(int[] input) {
+        Random random = new Random();
+        for (int i = 0; i < input.length; i++) {
+            input[i] = random.nextInt(0, 50);
+        }
+        return random;
+    }
+    public static int primeCount(int[] input) {
+        int count = 0;
+        for (int element : input) {
+            if (element >= 2 && checkPrime(element)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static int compositeCount(int[] array) {
+        int count = 0;
+        for (int element : array) {
+            if (element >= 3 && !checkPrime(element)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static boolean checkPrime(int num) {
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
                 return false;
+            }
         }
         return true;
+        }
     }
-
-}

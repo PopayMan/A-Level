@@ -14,15 +14,14 @@ public class Task4 {
     public static void fillArray(int[] input) {
         Random random = new Random();
         for (int i = 0; i < input.length; i++) {
-            input[i] = random.nextInt(0, 100);
+            input[i] = random.nextInt(0, 10 + 1);
         }
     }
         public static void replaceEvenElements( int[] input){
             for (int i = 0; i < input.length; i++) {
-                if (i % 2 == 0) {
-                    input[i] = 0;
+                input[i] = (input[i] % 2 == 0 ? 0 : input[i]);
                 }
             }
         }
-    }
+
 
