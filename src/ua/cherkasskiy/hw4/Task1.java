@@ -11,13 +11,15 @@ public class Task1 {
         System.out.println("Sum average: " + average(input));
         System.out.println("Sum geometric: " + geometricMean(input));
     }
-    public static Random fillArray(int[] input) {
+
+    public static int[] fillArray(int[] input) {
         Random random = new Random();
         for (int i = 0; i < input.length; i++) {
             input[i] = random.nextInt(1, 10 + 1);
         }
-        return random;
+        return input;
     }
+
     public static double average(int[] array) {
         double average = 0;
         for (int element : array) {
@@ -26,6 +28,7 @@ public class Task1 {
         average /= array.length;
         return average;
     }
+
     public static double geometricMean(int[] array) {
         double mean = 1;
         for (int element : array) {
