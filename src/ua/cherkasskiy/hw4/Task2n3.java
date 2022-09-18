@@ -12,6 +12,7 @@ public class Task2n3 {
         System.out.println("Sum prime numbers: " + primeCount(input));
         System.out.println("Sum composite numbers: " + compositeCount(input));
     }
+
     public static Random fillArray(int[] input) {
         Random random = new Random();
         for (int i = 0; i < input.length; i++) {
@@ -19,6 +20,7 @@ public class Task2n3 {
         }
         return random;
     }
+
     public static int primeCount(int[] input) {
         int count = 0;
         for (int element : input) {
@@ -28,6 +30,7 @@ public class Task2n3 {
         }
         return count;
     }
+
     public static int compositeCount(int[] array) {
         int count = 0;
         for (int element : array) {
@@ -37,6 +40,7 @@ public class Task2n3 {
         }
         return count;
     }
+
     public static boolean checkPrime(int num) {
         for (int i = 2; i < num; i++) {
             if (num % i == 0) {
@@ -44,5 +48,5 @@ public class Task2n3 {
             }
         }
         return true;
-        }
     }
+}
