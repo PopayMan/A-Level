@@ -1,37 +1,25 @@
 package ua.cherkasskiy.hw3;
 
+
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Task2 {
-
-    private static java.lang.String String;
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the string: ");
-        String word = in.nextLine().replaceAll(" ", "");
-        String reversed = reverse(word);
-        if (word.equals(reversed)) {
-            System.out.println("The string " + word + " is a palindrome");
-        } else {
-            System.out.println("The string " + word + " is not a palindrome");
-            removeSpace(String, word);
-        }
+        System.out.println("Wright some string: ");
+        String someString = in.nextLine();
+        System.out.println("String without the spase:" + deleteSpace(someString));
+        System.out.println("String is:" + (reversString(someString) ? "a palindrome" : "not a palindrome"));
     }
-    public static String reverse(String word) {
-        StringBuilder reversed = new StringBuilder(word.length());
-        for (int i = word.length(); i > 0; i--) {
-            reversed.append(word.charAt(i - 1));
-        }
-        return word;
+
+    static public String deleteSpace(String str) {
+        return str.replaceAll("\\s", "");
     }
-    private static String removeSpace(String word, java.lang.String s) {
-        StringBuilder buffer = new StringBuilder();
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) != ' ') {
-                buffer.append(word.charAt(i));
-            }
-        }
-        return buffer.toString();
+
+    public static boolean reversString(String str) {
+        str.toLowerCase(Locale.ROOT);
+        String reversStr = new StringBuffer(str).reverse().toString();
+        return str.equals(reversStr);
     }
 }
