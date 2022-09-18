@@ -11,17 +11,19 @@ public class Task4 {
         System.out.println(Arrays.toString(input));
     }
 
-    public static void fillArray(int[] input) {
+    public static int[] fillArray(int[] input) {
         Random random = new Random();
         for (int i = 0; i < input.length; i++) {
             input[i] = random.nextInt(0, 10 + 1);
         }
+        return input;
     }
-        public static void replaceEvenElements( int[] input){
-            for (int i = 0; i < input.length; i++) {
-                input[i] = (input[i] % 2 == 0 ? 0 : input[i]);
-                }
-            }
+
+    public static void replaceEvenElements(int[] input) {
+        for (int i = 0; i < input.length; i++) {
+            input[i] = (input[i] % 2 == 0 ? 0 : input[i]);
         }
+    }
+}
 
 
