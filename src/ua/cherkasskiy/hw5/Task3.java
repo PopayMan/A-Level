@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Task3 {
     public static void main(String[] args) {
-        int[][] numbers = fillArray(20);
+        int[][] numbers = fillArray(8);
         System.out.println();
       changeValueArray(numbers);
     }
@@ -20,8 +20,10 @@ public class Task3 {
         int[][] numbers = new int[length][length];
         Random random = new Random();
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = 0; j < numbers[i].length; j++) {
+            int j;
+            for (j = 0; j < numbers[i].length; j++) {
                 numbers[i][j] = random.nextInt(10);
+                System.out.println(numbers[j][i]);
             }
         }
         return numbers;
