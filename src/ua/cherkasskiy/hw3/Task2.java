@@ -13,7 +13,6 @@ public class Task2 {
         System.out.println("String without the spase:" + withoutSpase);
         System.out.println("String is:" + (reversString(withoutSpase) ? "a palindrome" : "not a palindrome"));
     }
-
     static public String deleteSpace(String str) {
         return str.replaceAll("\\s", "");
     }

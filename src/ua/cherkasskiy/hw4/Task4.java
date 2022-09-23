@@ -19,12 +19,10 @@ public class Task4 {
         }
         return input;
     }
-
     public static int[] replaceEvenElements(int[] input) {
         int[] inputArray = new int[input.length];
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = (input[i] % 2 == 0 ? 0 : input[i]);
-
         }
         return inputArray;
     }

@@ -1,7 +1,6 @@
 package ua.cherkasskiy.hw5;
 import java.util.Arrays;
 import java.util.Random;
-
 public class Task3 {
     public static void main(String[] args) {
         int[][] numbers = fillArray(8);
