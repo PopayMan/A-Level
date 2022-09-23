@@ -1,4 +1,5 @@
 package ua.cherkasskiy.hw5;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Task3 {
@@ -12,6 +13,7 @@ public class Task3 {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < numbers[i].length; j++) {
                 newNumbers[i][j] = numbers[j][i];
+                System.out.println(Arrays.deepToString(numbers));
             }
         }
         return newNumbers;
@@ -23,7 +25,7 @@ public class Task3 {
             int j;
             for (j = 0; j < numbers[i].length; j++) {
                 numbers[i][j] = random.nextInt(10);
-                System.out.println(numbers[j][i]);
+                System.out.println(Arrays.deepToString(numbers));
             }
         }
         return numbers;

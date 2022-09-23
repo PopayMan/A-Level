@@ -7,9 +7,10 @@ import java.util.Scanner;
 public class Task2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Wright some string: ");
-        String withoutSpase = in.nextLine();
-        System.out.println("String without the spase:" + deleteSpace(withoutSpase));
+        System.out.println("Write some string: ");
+        String input  = in.nextLine();
+        String withoutSpase = deleteSpace(input);
+        System.out.println("String without the spase:" + withoutSpase);
         System.out.println("String is:" + (reversString(withoutSpase) ? "a palindrome" : "not a palindrome"));
     }
 
