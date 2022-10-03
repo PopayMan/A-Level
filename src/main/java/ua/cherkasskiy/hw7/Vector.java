@@ -1,8 +1,10 @@
 package ua.cherkasskiy.hw7;
 
 import java.util.Random;
-
 public class Vector {
+    public static void main(String[] args) {
+
+    }
     int x, y, z;
 
     public Vector(int x, int y, int z) {
