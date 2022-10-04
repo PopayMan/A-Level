@@ -1,58 +1,82 @@
 package ua.cherkasskiy.hw7;
 
 import java.util.Random;
+
 public class Vector {
-    public static void main(String[] args) {
-      new Vector( x, y, z);
+    double x;
+    double y;
+    double z;
 
-    }
-    static int x;
-    static int y;
-    static int z;
-
-    public Vector(int x, int y, int z) {
+    public Vector(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    protected double length() {
-        return Math.abs(Math.sqrt((x * x) + (y * y) + (z * z)));
+    public Vector() {
     }
 
-    protected Vector vectorMulti(Vector vectorB) {
-        int newX = (this.y * vectorB.z) - (this.z * vectorB.y);
-        int newY = (this.z * vectorB.x) - (this.x * vectorB.z);
-        int newZ = (this.x * vectorB.y) - (this.y * vectorB.x);
-
-        return new Vector(newX, newY, newZ);
+    double getLength() {
+        return Math.abs(Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z));
     }
 
-    protected int scalarMulti(Vector vectorB) {
-        return this.x * vectorB.x + this.y * vectorB.y + this.z * vectorB.z;
-    }
+    Vector multiplicationOfVectors(Vector local) {
+        Vector result = new Vector();
+        if (this.checkCollinear(local)) {
+            result.x = result.y = result.z = 0;
+        } else {
 
-    protected double cosWithVectorB(Vector vectorB) {
-        return scalarMulti(vectorB) / (length() * vectorB.length());
-    }
+            result.x = (this.y * local.z - this.z * local.y);
+            result.y = (this.z * local.x - this.x * local.z);
+            result.z = (this.x * local.y - this.y * local.x);
 
-    protected Vector sumWithVectorB(Vector vectorB) {
-        return new Vector(this.x + vectorB.x, this.y + vectorB.y, this.z + vectorB.z);
-    }
-
-    protected Vector subWithVectorB(Vector vectorB) {
-        return new Vector(this.x - vectorB.x, this.y - vectorB.y, this.z - vectorB.z);
-    }
-
-    static public Vector[] vectorsArray(int n) {
-        Vector[] vectorArray = new Vector[n];
-        Random random = new Random();
-        for (int i = 0; i < n; i++) {
-            vectorArray[i] = new Vector(random.nextInt(41) - 20, random.nextInt(41) - 20, random.nextInt(41) - 20);
         }
-        return vectorArray;
+        return result;
     }
 
+    boolean checkCollinear(Vector local) {
+        return this.x / local.x == this.y / local.y && this.x / local.x == this.z / local.z;
+    }
+
+    double getVectorCosine(Vector local) {
+        return dotProductOfVectors(local) / (this.getLength() * local.getLength());
+    }
+
+    double dotProductOfVectors(Vector first) { //скалярное умножение векторов
+        return first.x * this.x + first.y * this.y + first.z * this.z;
+    }
+
+    Vector sumOfVectors(Vector local) {
+        Vector result = new Vector();
+        if (this.x == local.x && this.y == local.y && this.z == local.z) {
+            result.x = 0;
+            result.y = 0;
+            result.z = 0;
+        } else {
+
+            result.x = this.x + local.x;
+            result.y = this.y + local.y;
+            result.z = this.z + local.z;
+        }
+        return result;
+    }
+
+    static Vector substrOfVectors(Vector first, Vector second) { //сделал static для разнообразия
+        Vector result = new Vector();
+        if (first.x == second.x && first.y == second.y && first.z == second.z) {
+            result.x = 0;
+            result.y = 0;
+            result.z = 0;
+        } else {
+
+            result.x = first.x - second.x;
+            result.y = first.y - second.y;
+            result.z = first.z - second.z;
+        }
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Vector{" +
                 "x=" + x +
@@ -60,5 +84,21 @@ public class Vector {
                 ", z=" + z +
                 '}';
     }
-}
 
+    static void setCoordinates(Vector local) {
+        Random random = new Random();
+        local.x = random.nextDouble();
+        local.y = random.nextDouble();
+        local.z = random.nextDouble();
+    }
+
+    static Vector[] getVectorsArray(int n) {
+        Vector[] arrayOfVectors = new Vector[n];
+        for (int i = 0; i < n; i++) {
+            arrayOfVectors[i] = new Vector();
+            Vector.setCoordinates(arrayOfVectors[i]);
+        }
+        return arrayOfVectors;
+    }
+
+}
