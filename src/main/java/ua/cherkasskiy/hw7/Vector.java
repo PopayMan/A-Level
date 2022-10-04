@@ -3,9 +3,12 @@ package ua.cherkasskiy.hw7;
 import java.util.Random;
 public class Vector {
     public static void main(String[] args) {
+      new Vector( x, y, z);
 
     }
-    int x, y, z;
+    static int x;
+    static int y;
+    static int z;
 
     public Vector(int x, int y, int z) {
         this.x = x;
