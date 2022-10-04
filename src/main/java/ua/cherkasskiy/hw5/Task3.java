@@ -5,33 +5,35 @@ import java.util.Random;
 
 public class Task3 {
     public static void main(String[] args) {
-        int[][] numbers = fillArray(8);
-        System.out.println();
-        changeValueArray(numbers);
-        System.out.println(Arrays.deepToString(numbers));
-
+        int[][] startArray = new int[5][5];
+        fillArray(startArray);
+        System.out.println("Expanded array: ");
+        System.out.println(Arrays.deepToString(changeArray(startArray)));
     }
 
-    public static int[][] changeValueArray(int[][] numbers) {
-        int[][] newNumbers = new int[numbers.length][numbers[1].length];
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = 0; j < numbers[i].length; j++) {
-                newNumbers[i][j] = numbers[j][i];
+    public static void fillArray(int[][] startArray) {
+        System.out.println("Initial array: ");
+        for (int i = 0; i < startArray.length; i++) {
+            for (int j = 0; j < startArray[i].length; j++) {
+                int index = new Random().nextInt(100);
+                startArray[i][j] = index;
+                System.out.print(startArray[i][j] + " ");
             }
+
+            System.out.println();
         }
-        return newNumbers;
     }
 
-    public static int[][] fillArray(int length) {
-        int[][] numbers = new int[length][length];
-        Random random = new Random();
-        for (int i = 0; i < numbers.length; i++) {
-            int j;
-            for (j = 0; j < numbers[i].length; j++) {
-                numbers[i][j] = random.nextInt(10);
+    public static int[][] changeArray(int[][] startArray) {
+        int[][] resultArray = Arrays.copyOf(startArray, startArray.length);
+        for (int i = 0; i < resultArray.length; i++) {
+            for (int j = i + 1; j < resultArray[i].length; j++) {
+                int temp = resultArray[i][j];
+                resultArray[i][j] = resultArray[j][i];
+                resultArray[j][i] = temp;
+
             }
         }
-        return numbers;
+        return resultArray;
     }
 }
-
