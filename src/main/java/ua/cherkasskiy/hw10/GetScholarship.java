@@ -1,6 +1,6 @@
 package ua.cherkasskiy.hw10;
 
-public class getScholarship {
+public class GetScholarship {
     public static void main(String[] args) {
         Student[] student = new Student[2];
         student[0] = new Student("Kaiser", "Sozu", "JavaOnline2", 3.9);
